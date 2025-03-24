@@ -5,7 +5,7 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-
+//Variables
 const up = document.querySelector('#up');
 const number = document.querySelector('#number');
 const down = document.querySelector('#down');
@@ -22,6 +22,8 @@ const cardNumbers = ['A', '2', '3', '4', '5', '6', '7', '8', '9', 'J', 'Q', 'K']
 let countdownTimer = 10;
 let countdownInterval;
 
+//funciones
+
 const randomCards = (arr) => {
   const randomIndex = Math.floor(Math.random()*arr.length)
   return arr[randomIndex]
@@ -35,7 +37,6 @@ const as = (cardNumbers, cardSymbols) => {
   }
   return cardNumbers
 }
-
 
 const createCard = () => {
   const rndmSymbols = randomCards(cardSymbols);
@@ -73,14 +74,6 @@ const startCountdown = () => {
   countdownInterval = setInterval(updateCountdown, 1000);
 };
 
-window.onload = function() {
-  startCountdown(); 
-};
-
-button.addEventListener("click", () => {
-  createCard();
-});
-
 const adjustCardFontSize = () => {
   const cardHeight = card.offsetHeight; 
   const cardWidth = card.offsetWidth;    
@@ -92,6 +85,12 @@ const adjustCardFontSize = () => {
   down.style.fontSize = `${fontSize}px`;
 
 };
+
+//eventos
+
+button.addEventListener("click", () => {
+  createCard();
+});
 
 height.addEventListener('input', () => {
   const newHeight = height.value;
@@ -107,3 +106,6 @@ width.addEventListener('input', () => {
   adjustCardFontSize()
 });
 
+window.onload = function() {
+  startCountdown(); 
+};
